@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StateEffect: {fileID: 0}
   BubbleEmissionRate: 20
+  Audio: {fileID: 8300000, guid: 2f3e5f53418eea24bbd6a4bc5a858d97, type: 3}
+  AudioVolume: 1

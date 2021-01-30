@@ -34,7 +34,7 @@ namespace Utilites
 
         public static AudioSource PlaySfx(AudioClip clip, float volumne, bool loop = false)
         {
-            Debug.Log("playing sfx: " + clip.name);
+            //Debug.Log("playing sfx: " + clip.name);
             float current = Time.time;
             if (RecentlyPlayed.ContainsKey(clip.name))
             {

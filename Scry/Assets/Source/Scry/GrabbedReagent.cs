@@ -2,10 +2,9 @@
 
 public class GrabbedReagent : MonoBehaviour
 {
+    public ReagentSO reagentData;
     public ReagentEnteredCauldrenEventSO ReagentEnteredCauldrenEvent;
-
     public ReagantDestroyEventSO DestroyReagentEvent;
-
 
     private void OnEnable()
     {

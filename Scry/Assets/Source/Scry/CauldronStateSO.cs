@@ -7,5 +7,9 @@ public class CauldronStateSO : ScriptableObject
 {
     public EffectData StateEffect;
     public float BubbleEmissionRate;
+    public AudioClip Audio;
+    [Range(0,1)]
+    public float AudioVolume = 1;
+
 
 }

@@ -2,9 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilites;
+using DG.Tweening;
 
 public class Cauldron : MonoBehaviour
 {
+    public VoidEventChannelSO StartVisionEvent;
+    public VoidEventChannelSO StopVisionEvent;
+
+    public VoidEventChannelSO BrewingStartEvent;
+    public VoidEventChannelSO BrewingStopEvent;
+
     public ReagentEnteredCauldrenEventSO ReagentEnteredCauldrenEvent;
     public ReagantDestroyEventSO ReagentDestroyEvent;
 
@@ -17,21 +25,29 @@ public class Cauldron : MonoBehaviour
     public CauldronStateSO[] States;
     public List<ReagentSO> AddedReagent;
 
+    public float FadeOutDuration = 0.5f;
 
-    private void Reset()
-    {
-        AddedReagent = new List<ReagentSO>();
-    }
 
     private void OnEnable()
     {
-        OnEnteredState(States[stateIndex = 0]);
-        //ReagentEnteredCauldrenEvent.Event.AddListener(OnReagentEnteredCauldron);
+        BrewingStartEvent.OnEventRaised += StartBrewing;
     }
 
     private void OnDisable()
     {
-        //ReagentEnteredCauldrenEvent.Event.RemoveListener(OnReagentEnteredCauldron);
+        BrewingStartEvent.OnEventRaised -= StartBrewing;
+    }
+
+    private void StartBrewing()
+    {
+        AddedReagent = new List<ReagentSO>();
+        stateIndex = 0;
+        NextState();
+    }
+
+    private void StopBrewing()
+    {
+        BrewingStopEvent.RaiseEvent();
     }
 
     private void NextState()
@@ -49,14 +65,44 @@ public class Cauldron : MonoBehaviour
 
     private void LastState(CauldronStateSO state)
     {
-        StartCoroutine(BubbleVision.StartVision());
-        NextState();
+        StartCoroutine(BubbleVisionSequence());
     }
-        
+
+    private IEnumerator BubbleVisionSequence()
+    {
+        StartVisionEvent.RaiseEvent();
+        yield return BubbleVision.StartVision();
+        FadeOutCurrentAudio();
+        SetBubbleEmissionRate(0);
+        StopVisionEvent.RaiseEvent();
+        StopBrewing();
+    }
+
+    AudioSource currentAudio;
     private void OnEnteredState(CauldronStateSO state)
     {
-        Debug.Log("Entered State " + state.name);
-        BubblingEffectEmissionCtrl.Emission = state.BubbleEmissionRate;
+        FadeOutCurrentAudio();
+        SetBubbleEmissionRate(state.BubbleEmissionRate);
+
+        if (state.Audio != null)
+        {
+            currentAudio = AudioHelper.PlaySfx(state.Audio, state.AudioVolume, true);
+        }
+    }
+
+    private void FadeOutCurrentAudio()
+    {
+        if (currentAudio != null)
+        {
+            var temp = currentAudio;
+            currentAudio = null;
+            temp.DOFade(0, FadeOutDuration).OnComplete(() => Destroy(temp.gameObject));
+        }
+    }
+
+    private void SetBubbleEmissionRate(float rate)
+    {
+        BubblingEffectEmissionCtrl.Emission = rate;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

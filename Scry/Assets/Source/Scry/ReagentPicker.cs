@@ -14,8 +14,8 @@ public class ReagentPicker : MonoBehaviour
     public void Awake()
     {
         contactFilter2D = new ContactFilter2D();
-        raycastResultsBuffer = new RaycastHit2D[5];
     }
+
 
     // Update is called once per frame
     void Update()
@@ -24,7 +24,7 @@ public class ReagentPicker : MonoBehaviour
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-
+            raycastResultsBuffer = new RaycastHit2D[5];
             var count = Physics2D.Raycast(mousePos2D, Vector2.zero, contactFilter2D, raycastResultsBuffer);
             for (int i = 0; i <= count; i++)
             {
