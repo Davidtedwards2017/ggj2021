@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 3869577030708404863, guid: 77db7f6a498af9b4f80ed584a6b854dd, type: 3}
   FizzleDuration: 0.5
-  Duration: 0
+  Duration: 1
   Offset: {x: 0, y: 0, z: 0}
   OverrideColor: 0
   Color: {r: 0, g: 0, b: 0, a: 0}

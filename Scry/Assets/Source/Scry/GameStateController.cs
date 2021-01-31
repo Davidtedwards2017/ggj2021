@@ -69,6 +69,7 @@ public class GameStateController : MonoBehaviour
 
     private void EnterState(State state)
     {
+        Debug.Log("Enter State | " + state);
         switch (state) 
         {
             case State.starting:

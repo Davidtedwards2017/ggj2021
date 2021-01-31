@@ -20,10 +20,17 @@ public class Cauldron : MonoBehaviour
     public ParticleEmissionController BubblingEffectEmissionCtrl;
 
     public BubbleVision BubbleVision;
+    public CauldronInstablity Instablity;
+
+
+    public VoidEventChannelSO ShowCustomerRequestEvent;
+    public VoidEventChannelSO HideCustomerRequestEvent;
 
     private int stateIndex = 0;
     public CauldronStateSO[] States;
-    public List<ReagentSO> AddedReagent;
+    public List<ReagentSO> AddedReagents;
+
+    public Recipe Recipe;
 
     public float FadeOutDuration = 0.5f;
 
@@ -40,7 +47,9 @@ public class Cauldron : MonoBehaviour
 
     private void StartBrewing()
     {
-        AddedReagent = new List<ReagentSO>();
+        ShowCustomerRequestEvent.RaiseEvent();
+
+        AddedReagents = new List<ReagentSO>();
         stateIndex = 0;
         NextState();
     }
@@ -65,13 +74,33 @@ public class Cauldron : MonoBehaviour
 
     private void LastState(CauldronStateSO state)
     {
-        StartCoroutine(BubbleVisionSequence());
+        HideCustomerRequestEvent.RaiseEvent();
+        if (Recipe.IsRecipeMatch(AddedReagents))
+        {
+            StartCoroutine(SuccessfulSequence());
+        }
+        else
+        {
+            StartCoroutine(UnsuccessfulSequence());
+        }
     }
 
-    private IEnumerator BubbleVisionSequence()
+    private IEnumerator SuccessfulSequence()
     {
+        Debug.Log("Successful Brew");
         StartVisionEvent.RaiseEvent();
         yield return BubbleVision.StartVision();
+        FadeOutCurrentAudio();
+        SetBubbleEmissionRate(0);
+        StopVisionEvent.RaiseEvent();
+        StopBrewing();
+    }
+
+    private IEnumerator UnsuccessfulSequence()
+    {
+        Debug.Log("Unsuccessful Brew");
+        StartVisionEvent.RaiseEvent();
+        yield return Instablity.Sequence();
         FadeOutCurrentAudio();
         SetBubbleEmissionRate(0);
         StopVisionEvent.RaiseEvent();
@@ -123,7 +152,7 @@ public class Cauldron : MonoBehaviour
 
 
             SpashEffect.Spawn(other.transform.position);
-
+            AddedReagents.Add(reagent.reagentData);
             NextState();
         }
     }

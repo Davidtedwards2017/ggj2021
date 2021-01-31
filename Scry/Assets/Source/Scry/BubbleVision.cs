@@ -11,11 +11,15 @@ public class BubbleVision : MonoBehaviour
     public float TimeAfterVision = 1.0f;
 
     public float EmissionRate = 20;
+
+    public ShowFoundResultEventSO ShowFoundResultEvent;
+
     public IEnumerator StartVision()
     {
         VisionEffectEmissionCtrl.Emission = EmissionRate;
         yield return new WaitForSeconds(TimeBeforeVision);
         yield return new WaitForSeconds(TimeOfVision);
+        ShowFoundResultEvent.RaiseEvent(new ShowFoundResultEventData() { });
         VisionEffectEmissionCtrl.Emission = 0;
         yield return new WaitForSeconds(TimeAfterVision);
     }

@@ -83,7 +83,7 @@ namespace Utilites
 
         protected virtual bool WasPickedLast(T val)
         {
-            if (!PreventRepeats || _Collection.Count == 1) return false;
+            if (!PreventRepeats || _Collection.Count == 1 || _History.Length == 0) return false;
 
             var lastPick = _History[0];
             if (lastPick == null)
@@ -96,7 +96,7 @@ namespace Utilites
 
         private bool MatchesPattern(T val)
         {
-            if (!PreventPattern || _Collection.Count == 1) return false;
+            if (!PreventPattern || _Collection.Count == 1 || _History.Length == 0) return false;
 
             T[] pattern = new T[2];
             pattern[0] = val;
