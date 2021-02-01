@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d16d41722f3694d9b56d6361036562, type: 3}
   m_Name: Reagent Clicked Event
   m_EditorClassIdentifier: 
+  Sfx: {fileID: 11400000, guid: aad8fcfbce70c5c45bb07f279ac71e85, type: 2}

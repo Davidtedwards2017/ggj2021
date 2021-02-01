@@ -13,6 +13,22 @@ MonoBehaviour:
   m_Name: Reagent Assets
   m_EditorClassIdentifier: 
   Assets:
+  - {fileID: 11400000, guid: f7de1bd4f6617f9468e26836d62f9556, type: 2}
+  - {fileID: 11400000, guid: 8184f2a089b445847bd969a1c1acbb6c, type: 2}
+  - {fileID: 11400000, guid: 4677355296d278849b23cf3831a81c88, type: 2}
+  - {fileID: 11400000, guid: cf312f2cb05ab17428645bad7847ee10, type: 2}
   - {fileID: 11400000, guid: 5e740359bf0e2e244a0635578e3f0812, type: 2}
+  - {fileID: 11400000, guid: f438d75525576f343b1fdf1741eade03, type: 2}
+  - {fileID: 11400000, guid: 03fa082c106125c40af51bd086109f1b, type: 2}
+  - {fileID: 11400000, guid: 9eeac99db7637c14281d1c56e353a67d, type: 2}
   - {fileID: 11400000, guid: 0c14ab00f02e0cb409a2e2d7c46c78d2, type: 2}
   - {fileID: 11400000, guid: 34554c71f1812ae40b61c6aad5684903, type: 2}
+  - {fileID: 11400000, guid: 0a0cfa27e4c5b2447aa84ba07845365b, type: 2}
+  - {fileID: 11400000, guid: 8acea01e66654a043a6559ab06426eca, type: 2}
+  - {fileID: 11400000, guid: 5c8686c385e9bfe4d88c5e027750019e, type: 2}
+  - {fileID: 11400000, guid: c129ad791fdcfb24787dd0e222b5bbe9, type: 2}
+  - {fileID: 11400000, guid: 54a5cee12754bd74980e52625312bd33, type: 2}
+  - {fileID: 11400000, guid: 518aaada40d7e9244beb86b9c2b1c358, type: 2}
+  - {fileID: 11400000, guid: 00be38c686b411244af71c0221e3ead6, type: 2}
+  - {fileID: 11400000, guid: 6df4bcc16f7a7394983f65b4842622e2, type: 2}
+  - {fileID: 11400000, guid: a2cdd6fdf3724104796323146f0e2bc1, type: 2}

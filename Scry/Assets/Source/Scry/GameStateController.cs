@@ -24,12 +24,14 @@ public class GameStateController : MonoBehaviour
     public VoidEventChannelSO BrewingStartEvent;
     public VoidEventChannelSO BrewingStopEvent;
 
+    public GameSettingSO Settings;
+
     public State CurrentState;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        SetState(State.starting);
+        Settings.GameStarted = false;
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class GameStateController : MonoBehaviour
 
     private void OnEnable()
     {
+        GameStartEvent.OnEventRaised += StartGame;
         CustomerWalkUpStopEvent.OnEventRaised += OnStoppedWalkingUp;
         CustomerWalkAwayStopEvent.OnEventRaised += OnStoppedWalkingAway;
         BrewingStopEvent.OnEventRaised += OnStoppedBrewing;
@@ -52,9 +55,15 @@ public class GameStateController : MonoBehaviour
 
     private void OnDisable()
     {
+        GameStartEvent.OnEventRaised -= StartGame;
         CustomerWalkUpStopEvent.OnEventRaised -= OnStoppedWalkingUp;
         CustomerWalkAwayStopEvent.OnEventRaised -= OnStoppedWalkingAway;
         BrewingStopEvent.OnEventRaised -= OnStoppedBrewing;
+    }
+
+    private void StartGame()
+    {
+        SetState(State.starting);
     }
 
     private void SetState(State state)
@@ -73,7 +82,7 @@ public class GameStateController : MonoBehaviour
         switch (state) 
         {
             case State.starting:
-                GameStartEvent.RaiseEvent();
+                Settings.GameStarted = true;
                 break;
             case State.customerwalkingup:
                 CustomerWalkUpStartEvent.RaiseEvent();

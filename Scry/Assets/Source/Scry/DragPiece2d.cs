@@ -10,7 +10,20 @@ public class DragPiece2d : MonoBehaviour
 
     private SpringJoint2D springJoint;
 
-    void Update()
+    public ReagentGrabEventSO GrabbedReagentEvent;
+
+    private void OnEnable()
+    {
+        GrabbedReagentEvent.OnEventRaised.AddListener(Grab);
+    }
+
+    private void OnDisable()
+    {
+        GrabbedReagentEvent.OnEventRaised.RemoveListener(Grab);
+    }
+
+    private void Grab(GrabbedReagent reagent)
+    //void Update()
     {
         //if(!GameStateController.Instance.CanControl)
         //{
@@ -22,24 +35,24 @@ public class DragPiece2d : MonoBehaviour
         // If the player did not press the mouse button down, do not run
         // through Update().
         //
-        if (!Input.GetMouseButtonDown(0))
-        {
-            return;
-        }
+        //if (!Input.GetMouseButtonDown(0))
+        //{
+        //    return;
+        //}
 
-        Camera camera = FindCamera();
-        RaycastHit2D hit = Physics2D.Raycast(
-                getWorldMousePosition(),
-                Vector2.zero);
+        //Camera camera = FindCamera();
+        //RaycastHit2D hit = Physics2D.Raycast(
+        //        getWorldMousePosition(),
+        //        Vector2.zero);
 
         //
         // Prerequisites for dragging a GameObject. Should be
         // self-explanatory, I hope!
         //
-        if (hit.collider == null || !hit.rigidbody || hit.rigidbody.isKinematic)
-        {
-            return;
-        }
+        //if (hit.collider == null || !hit.rigidbody || hit.rigidbody.isKinematic)
+        //{
+        //    return;
+        //}
 
         //
         // SpringJoint2D creation.
@@ -53,10 +66,12 @@ public class DragPiece2d : MonoBehaviour
             body.isKinematic = true;
         }
 
+        var hit = reagent.Hit;
+
         //
         // SpringJoint2D property setting.
         //
-        springJoint.transform.position = hit.point;
+        //springJoint.transform.position = hit.point;
         // Spring endpoint, set to the position of the hit object:
         springJoint.anchor = Vector2.zero;
         // Initially, both spring endpoints are the same point:
@@ -65,7 +80,7 @@ public class DragPiece2d : MonoBehaviour
         springJoint.frequency = this.frequency;
         // Don't want our invisible "Rigidbody2D dragger" to collide!
         springJoint.enableCollision = false;
-        springJoint.connectedBody = hit.rigidbody;
+        springJoint.connectedBody = reagent.GetComponent<Rigidbody2D>();
 
         //
         // Keep in mind that the if statement at the beginning of this Update()

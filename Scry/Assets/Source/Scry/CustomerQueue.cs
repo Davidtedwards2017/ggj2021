@@ -19,9 +19,9 @@ public class CustomerQueue : MonoBehaviour
     public VoidEventChannelSO CustomerWalkAwayEndEvent;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        random = new FilteredRandom<CustomerSO>(Customers.Assets, 1);
+        random = new FilteredRandom<CustomerSO>(Customers.Assets, 2);
     }
 
     public void OnEnable()
@@ -41,7 +41,9 @@ public class CustomerQueue : MonoBehaviour
     private void OnCustomerWalkedAway()
     {
         ClearContainer(CurrentCustomerContainer);
+
         ReadyCurrentCustomer();
+        ReadyNextCustomer();
     }
 
     private void ReadyCurrentCustomer()
@@ -55,6 +57,7 @@ public class CustomerQueue : MonoBehaviour
             CurrentCustomer.SetLocalPosition(Vector3.zero);
             CurrentCustomer.transform.localScale = Vector3.one;
             CurrentCustomer.GetComponent<CustomerAnimations>().enabled = true;
+            CurrentCustomer.GetComponent<PlayOnEvent>().enabled = true;
         }
         else if (CurrentCustomer == null)
         {
@@ -70,6 +73,7 @@ public class CustomerQueue : MonoBehaviour
             ClearContainer(NextCustomerContainer);
             NextCustomer = Instantiate(random.GetNextRandom().Prefab, NextCustomerContainer);
             NextCustomer.GetComponent<CustomerAnimations>().enabled = false;
+            NextCustomer.GetComponent<PlayOnEvent>().enabled = false;
         }
     }
 

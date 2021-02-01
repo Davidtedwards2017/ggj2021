@@ -1,0 +1,104 @@
+
+skeleton.png
+size: 1125,298
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Pants
+  rotate: true
+  xy: 2, 103
+  size: 193, 323
+  orig: 193, 329
+  offset: 0, 2
+  index: -1
+arm_left
+  rotate: true
+  xy: 199, 22
+  size: 79, 202
+  orig: 80, 202
+  offset: 1, 0
+  index: -1
+arm_right
+  rotate: true
+  xy: 2, 4
+  size: 97, 195
+  orig: 97, 199
+  offset: 0, 4
+  index: -1
+face_happy
+  rotate: false
+  xy: 403, 2
+  size: 129, 100
+  orig: 130, 100
+  offset: 0, 0
+  index: -1
+face_neutral
+  rotate: false
+  xy: 534, 2
+  size: 129, 100
+  orig: 130, 100
+  offset: 0, 0
+  index: -1
+face_unhappy
+  rotate: true
+  xy: 665, 6
+  size: 129, 100
+  orig: 130, 100
+  offset: 0, 0
+  index: -1
+forearm_left
+  rotate: true
+  xy: 919, 14
+  size: 81, 153
+  orig: 81, 153
+  offset: 0, 0
+  index: -1
+forearm_right
+  rotate: true
+  xy: 767, 10
+  size: 85, 150
+  orig: 85, 150
+  offset: 0, 0
+  index: -1
+hair
+  rotate: true
+  xy: 596, 137
+  size: 159, 111
+  orig: 159, 111
+  offset: 0, 0
+  index: -1
+hand_left
+  rotate: true
+  xy: 709, 142
+  size: 75, 167
+  orig: 75, 167
+  offset: 0, 0
+  index: -1
+hand_right
+  rotate: true
+  xy: 709, 219
+  size: 77, 166
+  orig: 77, 166
+  offset: 0, 0
+  index: -1
+magehat01
+  rotate: false
+  xy: 878, 97
+  size: 245, 199
+  orig: 245, 204
+  offset: 0, 5
+  index: -1
+magehat_front
+  rotate: false
+  xy: 327, 104
+  size: 224, 51
+  orig: 224, 51
+  offset: 0, 0
+  index: -1
+torso1
+  rotate: true
+  xy: 327, 157
+  size: 139, 267
+  orig: 140, 267
+  offset: 0, 0
+  index: -1

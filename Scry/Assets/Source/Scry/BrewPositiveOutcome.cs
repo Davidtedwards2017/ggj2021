@@ -15,13 +15,14 @@ public class BrewPositiveOutcome : MonoBehaviour
     private FilteredRandom<OutcomeSO> random;
 
     public Transform OutcomeContainer;
+    public Animator animator;
 
     public float ShowDuration = 1.0f;
     public float FadeDuration = 0.5f;
 
     void Awake()
     {
-        random = new FilteredRandom<OutcomeSO>(Outcomes.Assets, 2);
+        random = new FilteredRandom<OutcomeSO>(Outcomes.Assets, 3);
 
         CanvasGroup.alpha = 0;
     }
@@ -47,6 +48,7 @@ public class BrewPositiveOutcome : MonoBehaviour
         SpawnOutcome(random.GetNextRandom());
 
         CanvasGroup.DOFade(1, FadeDuration);
+        animator.SetTrigger("scroll");
         yield return new WaitForSeconds(ShowDuration);
         CanvasGroup.DOFade(0, FadeDuration);
     }

@@ -38,8 +38,9 @@ public class AudioController : Singleton<AudioController> {
         }
     }
 
-    public void Start()
+    protected override void Awake()
     {
+        base.Awake();
         MasterMusicVolume = StartingMusicVolume;
         MasterSfxVolume = StartingSfxVolume;
     }

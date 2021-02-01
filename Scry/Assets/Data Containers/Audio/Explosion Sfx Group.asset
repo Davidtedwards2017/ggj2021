@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a7e2e9c4ad837498dba890623d32e8, type: 3}
+  m_Name: Explosion Sfx Group
+  m_EditorClassIdentifier: 
+  SFXs:
+  - {fileID: 11400000, guid: bd6f1d20547fce54fabbfdb3cb9b1729, type: 2}
+  - {fileID: 11400000, guid: b79adf78aa4024e4f868bc3058c6beb9, type: 2}
+  - {fileID: 11400000, guid: 8b80d8ad9b9796d46a32dff0a0991fe6, type: 2}
+  - {fileID: 11400000, guid: 3974e6246b773494092facced4e27505, type: 2}

@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc25d1375d6c65c46b31d68078538d38, type: 3}
   m_Name: Successful Brew Event Channel
   m_EditorClassIdentifier: 
+  SFXs:
+  - {fileID: 11400000, guid: 3d3e9ecdd71cb024f8b3293fdf0aee15, type: 2}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2643509734953164201}
   - component: {fileID: 2643509734953164202}
   - component: {fileID: 2643509734953164203}
+  - component: {fileID: 7353857519237842302}
   m_Layer: 0
   m_Name: Mage 2
   m_TagString: Untagged
@@ -106,6 +107,20 @@ MonoBehaviour:
     type: 2}
   UnsuccessfulBrewEvent: {fileID: 11400000, guid: 4d112b260f2cab44683d516c94a5e178,
     type: 2}
+--- !u!114 &7353857519237842302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2643509734953164200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320e663b76dd7954f82633764c02aa79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundsEffect: {fileID: 11400000, guid: 9fda4fa3eecb0dd44a6f4887e094d066, type: 2}
+  Event: {fileID: 11400000, guid: cbc497b940560a1469a7b446b0f906f8, type: 2}
 --- !u!1 &2643509735501876644
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +181,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ddfb2a5a019be2040964398a5f46893a, type: 2}
+  - {fileID: 2100000, guid: a3a19ebffa0069144a6f4734875d69e2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

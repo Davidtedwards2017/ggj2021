@@ -6,6 +6,8 @@ public class GrabbedReagent : MonoBehaviour
     public ReagentEnteredCauldrenEventSO ReagentEnteredCauldrenEvent;
     public ReagantDestroyEventSO DestroyReagentEvent;
 
+    public RaycastHit2D Hit;
+
     private void OnEnable()
     {
         DestroyReagentEvent.Event.AddListener(OnDestroyReagent);

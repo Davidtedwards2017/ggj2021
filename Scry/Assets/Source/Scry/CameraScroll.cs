@@ -12,6 +12,8 @@ public class CameraScroll : MonoBehaviour
 
     private void Update()
     {
+        if (!Settings.GameStarted) return;
+
         var mousePos = Input.mousePosition;
         var distanceFromCenter = Mathf.Abs((Screen.width / 2) - mousePos.x);
 

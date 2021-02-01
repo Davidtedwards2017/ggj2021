@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lost Item Assets
   m_EditorClassIdentifier: 
   Assets:
+  - {fileID: 11400000, guid: 2bdd642feec224e43a50e146dd8fe0ea, type: 2}
   - {fileID: 11400000, guid: 7b91ea19d5d9cc94fa8a70cad89a32ae, type: 2}
   - {fileID: 11400000, guid: b444f661c181d6948a451b97d552c505, type: 2}
   - {fileID: 11400000, guid: f5ff4d3079309a34b871e433f9ce74b8, type: 2}

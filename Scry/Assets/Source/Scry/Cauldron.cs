@@ -26,11 +26,15 @@ public class Cauldron : MonoBehaviour
     public VoidEventChannelSO ShowCustomerRequestEvent;
     public VoidEventChannelSO HideCustomerRequestEvent;
 
+    public VoidEventChannelSO PositiveBrewEvent;
+    public VoidEventChannelSO NegitiveBrewEvent;
+
     private int stateIndex = 0;
     public CauldronStateSO[] States;
     public List<ReagentSO> AddedReagents;
 
     public Recipe Recipe;
+    public RecipeEventSO RecipeEvent;
 
     public float FadeOutDuration = 0.5f;
 
@@ -74,6 +78,11 @@ public class Cauldron : MonoBehaviour
 
     private void LastState(CauldronStateSO state)
     {
+        RecipeEvent.RaiseEvent(new RecipeEventData()
+        {
+            Reagents = new List<ReagentSO>()
+        });
+
         HideCustomerRequestEvent.RaiseEvent();
         if (Recipe.IsRecipeMatch(AddedReagents))
         {
@@ -93,6 +102,7 @@ public class Cauldron : MonoBehaviour
         FadeOutCurrentAudio();
         SetBubbleEmissionRate(0);
         StopVisionEvent.RaiseEvent();
+        PositiveBrewEvent.RaiseEvent();
         StopBrewing();
     }
 
@@ -104,6 +114,7 @@ public class Cauldron : MonoBehaviour
         FadeOutCurrentAudio();
         SetBubbleEmissionRate(0);
         StopVisionEvent.RaiseEvent();
+        NegitiveBrewEvent.RaiseEvent();
         StopBrewing();
     }
 

@@ -12,12 +12,15 @@ public class BubbleVision : MonoBehaviour
 
     public float EmissionRate = 20;
 
+    public SfxAsset Sfx;
+
     public ShowFoundResultEventSO ShowFoundResultEvent;
 
     public IEnumerator StartVision()
     {
         VisionEffectEmissionCtrl.Emission = EmissionRate;
         yield return new WaitForSeconds(TimeBeforeVision);
+        Sfx.Play();
         yield return new WaitForSeconds(TimeOfVision);
         ShowFoundResultEvent.RaiseEvent(new ShowFoundResultEventData() { });
         VisionEffectEmissionCtrl.Emission = 0;

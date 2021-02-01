@@ -17,6 +17,8 @@ public class Recipe : MonoBehaviour
 
     private FilteredRandom<ReagentSO> filteredRandom;
 
+    public RecipeEventSO RecipeEvent;
+
     public void Awake()
     {
         filteredRandom = new FilteredRandom<ReagentSO>(Reagents.Assets, RandomHistoryLength);
@@ -36,10 +38,19 @@ public class Recipe : MonoBehaviour
     {
         CurrentRecipe = new List<ReagentSO>();
 
-        for (int i = 0; i < Size; i++)
+        while(CurrentRecipe.Count < Size)
         {
-            CurrentRecipe.Add(filteredRandom.GetNextRandom());
+            var reagent = filteredRandom.GetNextRandom();
+            if (!CurrentRecipe.Contains(reagent))
+            {
+                CurrentRecipe.Add(reagent);
+            }
         }
+
+        RecipeEvent.RaiseEvent(new RecipeEventData()
+        {
+            Reagents = new List<ReagentSO>(CurrentRecipe)
+        });
     }
 
     public bool IsRecipeMatch(List<ReagentSO> addedReagents)

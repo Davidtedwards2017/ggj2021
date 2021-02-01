@@ -7,6 +7,8 @@ public class WalkingEventController : MonoBehaviour
     public VoidEventChannelSO StopWalkingUpEvent;
     public VoidEventChannelSO StopWalkingAwayEvent;
 
+    public SfxAsset StepSfx;
+
     public void StopWalkingUp()
     {
         StopWalkingUpEvent.RaiseEvent();
@@ -19,6 +21,9 @@ public class WalkingEventController : MonoBehaviour
 
     public void Step()
     {
-
+        if (StepSfx != null)
+        {
+            StepSfx.Play();
+        }
     }
 }

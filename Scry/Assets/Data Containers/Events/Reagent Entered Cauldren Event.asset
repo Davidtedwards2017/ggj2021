@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754dbee3714fa274181451b5cc280452, type: 3}
   m_Name: Reagent Entered Cauldren Event
   m_EditorClassIdentifier: 
+  SplashSfx: {fileID: 11400000, guid: b339a55b35f703541bb73842169f6ef8, type: 2}

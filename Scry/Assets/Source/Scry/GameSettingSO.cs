@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Scry/Settings")]
 public class GameSettingSO : ScriptableObject
 {
+    public bool GameStarted;
+
     [Header("Camera")]
     public float CameraScrollingSpeed = 1;
     public float MouseDeadZone = 1;

@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc25d1375d6c65c46b31d68078538d38, type: 3}
   m_Name: Start Vision Event Channel
   m_EditorClassIdentifier: 
+  SFXs: []

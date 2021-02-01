@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 4344184366183152429}
   - component: {fileID: 4344184366183152430}
   - component: {fileID: 4344184366183152431}
+  - component: {fileID: 3989723814253090362}
   m_Layer: 0
   m_Name: Mage 1
   m_TagString: Untagged
@@ -246,3 +247,17 @@ MonoBehaviour:
     type: 2}
   UnsuccessfulBrewEvent: {fileID: 11400000, guid: 4d112b260f2cab44683d516c94a5e178,
     type: 2}
+--- !u!114 &3989723814253090362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4344184366183152428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320e663b76dd7954f82633764c02aa79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundsEffect: {fileID: 11400000, guid: 624e87ff419412b4c97accad2c92ae08, type: 2}
+  Event: {fileID: 11400000, guid: cbc497b940560a1469a7b446b0f906f8, type: 2}
